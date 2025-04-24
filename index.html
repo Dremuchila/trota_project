@@ -8,22 +8,23 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
+    <div class="cursor"></div>
     <header>
         <div class="top-bar">
             <div class="top-bar-content">
                 <div class="logo-main">
-                    <a href="index.html">
+                    <a href="index.html" >
                         <img src="images/logo.png" alt="Логотип TROTA_project">
-                        <span>Главная</span>
+                        <span >Главная</span>
                     </a>
                 </div>
                 <div class="search-box">
-                    <input type="text" placeholder="Поиск">
+                    <input type="text" placeholder="Поиск" class="cur-text">
                     <button type="submit">
-                        <img src="images/icons/search.png" alt="Поиск">
+                        <img src="images/icons/search.png" class="pointer pixelize"" alt="Поиск">
                     </button>
                 </div>
-                <a href="#">Войти</a>
+                <a href="#" class="pointer">Войти</a>
         </div>
     </div>
 </header>
@@ -56,15 +57,16 @@
             <div class="info-block">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="images/logo.png" alt="Логотип TROTA_project">
+                        <img class="no-pixelize" src="images/logo.png" alt="Логотип TROTA_project">
                     </a>
                 </div>
+                <!-- Исправлено для поисковика (иначе игнорировал ссылки и не отображал панель с ещё) -->
                 <div class="description">
                     <h1>Тише, дорогая Мита</h1>
-                    <p id="short-description">
+                    <p id="short-description" style="display: contents;">
                         Здесь выходит мультсериал "Тише, дорогая Мита", который подходит для подростков и взрослых (16+).
-                        <a href="#" id="show-more">Еще</a>
                     </p>
+                    <a href="#" id="show-more">Ещё</a>
                 </div>
             </div>
 
@@ -109,7 +111,7 @@
     <footer>
         <p>© 2025 TROTA_project. Все права защищены.</p>
     </footer>
-
+<!-- Исправлено для поисковика (иначе игнорировал ссылки) -->
     <!-- Модальное окно -->
     <div id="modal" class="modal">
         <div class="modal-content">
@@ -117,10 +119,11 @@
             <h2>Описание</h2>
             <p>Здесь выходит мультсериал "Тише, дорогая Мита", который подходит для подростков и взрослых (16+).</p>
             <p>Девочка-подросток Мита из малого технического городка чувствует себя очень подавленно и одиноко из-за ссор с отцом. Во время побега ее сбивает фургон двух эксцентричных, но добрых актеров, что помогают людям из больших городов решать проблемы при помощи особой методики – куклотерапии.</p>
-            <p>Ссылки: <a href="https://t.me/TROTA_project">Телеграм</a>, <a href="https://vk.com/trota_project">ВК</a>
+            <p style="display: contents;">Ссылки: </p><a href="https://t.me/TROTA_project">Телеграм</a>, <a href="https://vk.com/trota_project">ВК</a>
             ,<a href="https://www.youtube.com/@TROTA_project">Ютуб</a>,
-            <a href="https://boosty.to/trota_project">Поддержать</a></p>
+            <a href="https://boosty.to/trota_project">Поддержать</a>
             <button id="copy-link-modal">Поделиться сайтом</button>
+            
         </div>
     </div>
 

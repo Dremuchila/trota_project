@@ -1,7 +1,46 @@
+/* все стили */
+* {
+    cursor: none; /* отключение курсора */
+}
+
+/* пиксельный рендер - не сжимает  */
+/* .pixelize {
+    image-rendering: pixelated;
+} */
+
+/* рендер - сжимает  */
+.no-pixelize {
+    image-rendering:auto;
+}
+
+/* выделяет текст зелённым как дракончик */
+::selection {
+    background: #4a9159; /* Safari */
+    }
+
+
+/* курсор */
+.cursor {
+    position: fixed;
+    pointer-events: none;
+    width: 40px;
+    height: 40px;
+    background-image: url('images/my-cursor.png');
+    z-index: 10;
+    image-rendering: pixelated;
+    transform: 0;
+}
+
+/* отключение кликабельности - для будущего плеера */
+/* iframe {
+    pointer-events: none;
+    
+} */
+
 /* Общие стили */
 :root {
-    --primary-color: #34495e;
-    --secondary-color: #fdee96;
+    --primary-color: #34495e; /* Темно-синий */
+    --secondary-color: #fdee96; /* Желтый */
     --background-color: #141b22;
     --text-color: var(--secondary-color);
     --font-family: sans-serif;
@@ -12,8 +51,7 @@ body {
     margin: 0;
     background-color: var(--background-color);
     color: var(--text-color);
-    line-height: 1.6;
-    cursor: url('images/my-cursor.png'), auto;
+    line-height: 1.6; /* Улучшенная читаемость */
 }
 
 h1, h2, h3 {
@@ -45,7 +83,8 @@ ul {
     margin: 0;
 }
 
-header{
+/* Шапка */
+header {
     position: sticky;
     top: 0;
     background-color: var(--primary-color);
@@ -53,6 +92,7 @@ header{
     z-index: 100;
 }
 
+/* Подвал */
 footer {
     background-color: var(--primary-color);
     padding: 1rem;
@@ -61,8 +101,13 @@ footer {
     color: var(--secondary-color);
 }
 
+/* Лого */
 .logo img {
     height: 70px;
+}
+
+.logo {
+    image-rendering: pixelated;
 }
 
 .auth a {
@@ -114,10 +159,11 @@ footer {
     border: 1px solid transparent;
     border-radius: 5px;
     text-align: left;
+    transition: all 0.3s ease;
 }
 
 .menu a:hover {
-    border: 1px solid #fdee96;
+    border: 1px solid var(--secondary-color);
     text-decoration: none;
 }
 
@@ -135,7 +181,7 @@ footer {
 .top-bar {
     background-color: var(--primary-color);
     color: var(--secondary-color);
-    padding: 0.5rem;
+    padding: 0.5rem; /* Уменьшенная высота на мобильных */
 }
 
 .top-bar-content {
@@ -144,6 +190,7 @@ footer {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 1rem; /* Отступы по бокам на мобильных */  
 }
 
 .top-bar span {
@@ -160,16 +207,15 @@ footer {
     padding: 0.5rem;
     border: none;
     border-radius: 3px;
-    background-color: #4e657a;
+    background-color: #4e657a; /* Adjusted */
     color: var(--text-color);
-    width: 150px;
+    width: 150px; /* Уменьшенная ширина на мобильных */
     margin-right: 0.5rem;
 }
 
 .top-bar button[type="submit"] {
     background-color: transparent;
     border: none;
-    cursor: pointer;
     padding: 0;
 }
 
@@ -185,6 +231,12 @@ footer {
     padding: 5px 10px;
     border: 1px solid #fdee96;
     border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Плавное изменение цвета */
+}
+
+.top-bar a:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 /* Info Block */
@@ -195,8 +247,8 @@ footer {
     margin-bottom: 1rem;
     background-color: #4e657a;
     border-radius: 10px;
-    flex-direction: column;
-    text-align: center;
+    flex-direction: column; /*  Расположение в столбик на маленьких экранах */
+    text-align: center; /* Выравнивание текста по центру на маленьких экранах */
 }
 
 .info-block .logo {
@@ -205,7 +257,7 @@ footer {
 }
 
 .info-block .logo img {
-    width: 100px;
+    width: 100px; /* Уменьшенное лого на мобильных */
     height: 100px;
     border-radius: 10px;
 }
@@ -241,17 +293,18 @@ footer {
     background-color: #b3aa5a;
 }
 
+
 /* Контейнер для навигации и контента */
 .content-wrapper {
     display: flex;
     max-width: 1200px;
     margin: 0 auto;
     padding: 1rem;
-    flex-direction: column;
+    flex-direction: column; /* Расположение в столбик на маленьких экранах */
 }
 
 nav {
-    width: 100%;
+    width: 100%; /* Навигация занимает всю ширину */
     margin-right: 0;
     margin-bottom: 1rem;
     background-color: #4e657a;
@@ -275,7 +328,7 @@ main {
 /* Grid для видео */
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusted */
     gap: 1rem;
 }
 
@@ -285,6 +338,7 @@ main {
     border-radius: 5px;
     background-color: var(--primary-color);
     height: 100%;
+    cursor: none;
 }
 
 .video-item img {
@@ -311,7 +365,7 @@ main {
     margin: 15% auto;
     padding: 1rem;
     border: 1px solid #5a6c86;
-    width: 80%;
+    width: 80%; /* Adjusted for mobile */
     border-radius: 10px;
 }
 
@@ -326,22 +380,12 @@ main {
 .close:focus {
     color: black;
     text-decoration: none;
-    cursor: pointer;
-}
-
-#copy-link-modal {
-    background-color: #fdee96;
-    color: #34495e;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
 /* Адаптивность */
 @media (min-width: 768px) {
     .content-wrapper {
-        flex-direction: row;
+        flex-direction: row; /* Возвращаем горизонтальное расположение */
     }
 
     nav {
@@ -350,13 +394,13 @@ main {
         margin-bottom: 0;
     }
     .menu {
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
+        flex-direction: column; /* Горизонтальное расположение */
+        flex-wrap: nowrap; /* Перенос на новую строку, если не помещается */
+        justify-content: flex-start; /* Равномерное распределение элементов */
     }
     .menu li {
         margin: 5px;
-        flex-basis: auto;
+        flex-basis: auto; /* Два элемента в ряд */
     }
     .menu a {
         display: flex;
@@ -431,12 +475,10 @@ main {
 }
 /* Общие стили */
 body {
-    cursor: url('images/my-cursor.png'), auto; /* Замените 'images/my-cursor.png' на путь к вашему изображению */
     font-family: sans-serif;
     margin: 0;
     background-color: #141b22; /* Синий фон */
     color: #fdee96; /* Желтый текст */
-    
 }
 
 p {
@@ -592,7 +634,6 @@ nav {
 .top-bar button[type="submit"] {
     background-color: transparent;
     border: none;
-    cursor: pointer;
     padding: 0;
 }
 
@@ -655,7 +696,6 @@ nav {
     border: none;
     padding: 5px 10px;
     border-radius: 5px;
-    cursor: pointer;
 }
 
 #copy-link:hover {
@@ -744,7 +784,6 @@ main {
 .close:focus {
     color: black;
     text-decoration: none;
-    cursor: pointer;
 }
 
 #copy-link-modal {
@@ -753,7 +792,6 @@ main {
     border: none;
     padding: 5px 10px;
     border-radius: 5px;
-    cursor: pointer;
 }
 
 /* Адаптивность (простой пример) */
@@ -855,7 +893,6 @@ nav {
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 5px;
-    cursor: pointer;
     font-size: 1rem;
     display: none; /* Скрываем кнопку на больших экранах */
 }

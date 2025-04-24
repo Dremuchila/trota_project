@@ -1,3 +1,61 @@
+let onVideo = false;
+
+// Курсор поверх сайта
+let cursor = document.querySelector(".cursor");
+document.addEventListener('mousemove', e => {
+    elem = e.target;
+    if (elem.className == "video-item" || onVideo) {
+        cursor.style.display = "none";
+        cursor.style.backgroundImage = "none";
+        onVideo = true;
+    } 
+    if (elem.className != "video-item" && elem.className != "") {
+        cursor.style.display = "block";
+        onVideo = false;
+    }
+    if (!onVideo) {
+        cursor.style.display = "block";
+    }
+    cle = ["menu-toggle", "top-bar", "close", "copy-link", "copy-link-modal", "pointer"];
+    console.log(elem.className, elem.id);
+    if (elem.className == "cur-text") {
+        cursor.style.backgroundImage = "url(images/cursor_text.png)";
+    } else {
+        cursor.style.backgroundImage = "url(images/my-cursor.png)";
+    }
+    for (cl in cle) {
+        if (elem.className == cle[cl] || elem.id == cle[cl]) {
+            cursor.style.backgroundImage = "url(images/pointer40x40.png)";
+            break;
+        } else if (elem.className != "cur-text") {
+            cursor.style.backgroundImage = "url(images/my-cursor.png)";
+        }
+    }
+  })
+
+document.addEventListener("mouseleave", e => {
+// console.log(e)
+    cursor.style.backgroundImage = "none";
+})
+
+document.addEventListener("mouseover", e => {
+// console.log(e)
+    cursor.style.backgroundImage = "none";
+})
+
+function cursorControl(e) {
+    //tracks the cursors coordinates
+      let x = e.clientX;
+      let y = e.clientY;
+    //places the custom cursor onto the cursor coordinates
+      cursor.style.top = `${y}px`;
+      cursor.style.left = `${x}px`;
+      
+    }
+cursor.style.backgroundImage = "none";
+document.addEventListener("mousemove", cursorControl);
+
+// -----------------
 
 document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.querySelector('.search-box input[type="text"]');
