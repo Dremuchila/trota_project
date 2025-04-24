@@ -89,7 +89,7 @@ header {
     top: 0;
     background-color: var(--primary-color);
     padding: 0.5rem 0;
-    z-index: 100;
+    z-index: 10;
 }
 
 /* Подвал */
